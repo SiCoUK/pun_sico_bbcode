@@ -1,4 +1,7 @@
-pun_sico_bbcode
-===============
+pun_sico_bbcode - PunBB Plugin to Extend Supported BBCode
+=========================================================
 
-PunBB Plugin to Extend Supported BB Code
+Add support for:
+- [sub] Sub text <sub>
+- [sup] Super text <sup>
+- [strike] Strike out text <del>
