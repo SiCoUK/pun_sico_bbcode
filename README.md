@@ -1,4 +1,4 @@
 pun_sico_bbcode
 ===============
 
-PunBB BB Code Extension
+PunBB Plugin to Extend Supported BB Code
