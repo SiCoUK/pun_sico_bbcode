@@ -66,20 +66,17 @@
 		 */ -->
 		<hook id="ps_do_bbcode_replace"><![CDATA[
 			
-			// Include the extension functions
-			include_once $ext_info['path'].'/functions.php';
-			
 			// Subscript Tag
-			$pattern[] = '#\[sub\](.*?)\[/sub\]#se';
-			$replace[] = 'handle_sub_tag(\'$1\')';
+			$pattern[] = '#\[sub\](.*?)\[/sub\]#ms';
+			$replace[] = '<sub>$matches[1]</sub>';
 			
 			// Superscript Tag
-			$pattern[] = '#\[sup\](.*?)\[/sup\]#se';
-			$replace[] = 'handle_sup_tag(\'$1\')';
+			$pattern[] = '#\[sup\](.*?)\[/sup\]#ms';
+			$replace[] = '<sup>$matches[1]</sup>';
 			
 			// Strike Tag
-			$pattern[] = '#\[strike\](.*?)\[/strike\]#se';
-			$replace[] = 'handle_strike_tag(\'$1\')';
+			$pattern[] = '#\[strike\](.*?)\[/strike\]#ms';
+			$replace[] = '<del>$matches[1]</del>';
 			
 			// Line Tag
 			$pattern[] = '#\[line\/\]#i';
