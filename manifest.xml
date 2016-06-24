@@ -11,79 +11,79 @@
 -->
 
 <extension engine="1.0">
-	<id>sico_bbcode</id>
-	<title>SiCo BBCode</title>
-	<version>0.0.5</version>
-	<description>Adds extra bbcode to the standard feature set.</description>
-	<author>Simon Corless</author>
-	<minversion>1.3</minversion>
-	<maxtestedon>1.3.4</maxtestedon>
+    <id>sico_bbcode</id>
+    <title>SiCo BBCode</title>
+    <version>0.0.6</version>
+    <description>Adds extra bbcode to the standard feature set including sub, sup, strike, line, spoiler.</description>
+    <author>Simon Corless</author>
+    <minversion>1.4.0</minversion>
+    <maxtestedon>1.4.4</maxtestedon>
 
-	<install><![CDATA[
+    <install><![CDATA[
 
-	]]></install>
+    ]]></install>
 
-	<uninstall><![CDATA[
+    <uninstall><![CDATA[
 
-	]]></uninstall>
+    ]]></uninstall>
 
-	<hooks>
+    <hooks>
 
-		<!--
-		/**
-		 * Add the custom tags to the stack
-		 */ -->
-		<hook id="ps_preparse_tags_start"><![CDATA[
+        <!--
+        /**
+         * Add the custom tags to the stack
+         */ -->
+        <hook id="ps_preparse_tags_start"><![CDATA[
 
-			// Subscript Tag
-			$tags[] = 'sub';
-			$tags_opened[] = 'sub';
-			$tags_closed[] = 'sub';
-			$tags_fix[] = 'sub';
+            // Subscript Tag
+            $tags[] = 'sub';
+            $tags_opened[] = 'sub';
+            $tags_closed[] = 'sub';
+            $tags_fix[] = 'sub';
 
-			// Superscript Tag
-			$tags[] = 'sup';
-			$tags_opened[] = 'sup';
-			$tags_closed[] = 'sup';
-			$tags_fix[] = 'sup';
-			
-			// Strike Tag
-			$tags[] = 'strike';
-			$tags_opened[] = 'strike';
-			$tags_closed[] = 'strike';
-			$tags_fix[] = 'strike';
-			
-			$tags_limit_bbcode['*'][] = 'strike';
-			
-			// Line Tag
-			//$tags[] = 'line';
+            // Superscript Tag
+            $tags[] = 'sup';
+            $tags_opened[] = 'sup';
+            $tags_closed[] = 'sup';
+            $tags_fix[] = 'sup';
 
-		]]></hook>
+            // Strike Tag
+            $tags[] = 'strike';
+            $tags_opened[] = 'strike';
+            $tags_closed[] = 'strike';
+            $tags_fix[] = 'strike';
 
-		<!--
-		/**
-		 * Parse the tags
-		 */ -->
-		<hook id="ps_do_bbcode_replace"><![CDATA[
-			
-			// Subscript Tag
-			$pattern[] = '#\[sub\](.*?)\[/sub\]#ms';
-			$replace[] = '<sub>$matches[1]</sub>';
-			
-			// Superscript Tag
-			$pattern[] = '#\[sup\](.*?)\[/sup\]#ms';
-			$replace[] = '<sup>$matches[1]</sup>';
-			
-			// Strike Tag
-			$pattern[] = '#\[strike\](.*?)\[/strike\]#ms';
-			$replace[] = '<del>$matches[1]</del>';
-			
-			// Line Tag
-			$pattern[] = '#\[line\/\]#i';
-			$replace[] = '<hr />';
-			
-		]]></hook>
-		
-	</hooks>
+            $tags_limit_bbcode['*'][] = 'strike';
+
+            // Line Tag
+            $tags[] = 'line';
+
+        ]]></hook>
+
+        <!--
+        /**
+         * Parse the tags
+         */ -->
+        <hook id="ps_do_bbcode_replace"><![CDATA[
+
+            // Subscript Tag
+            $pattern[] = '#\[sub\](.*?)\[/sub\]#ms';
+            $replace[] = '<sub>$matches[1]</sub>';
+
+            // Superscript Tag
+            $pattern[] = '#\[sup\](.*?)\[/sup\]#ms';
+            $replace[] = '<sup>$matches[1]</sup>';
+
+            // Strike Tag
+            $pattern[] = '#\[strike\](.*?)\[/strike\]#ms';
+            $replace[] = '<del>$matches[1]</del>';
+
+            // Line Tag
+            $pattern[] = '#\[line\]#ms';
+            $replace[] = '<hr />';
+
+        ]]></hook>
+
+    </hooks>
 
 </extension>
